@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgation"
+    app:startDestination="@id/noteFragment">
+
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.example.notesmvvm.fragment.NoteFragment"
+        android:label="fragment_note"
+        tools:layout="@layout/fragment_note" >
+        <action
+            android:id="@+id/action_noteFragment_to_saveAndUpdateFragment"
+            app:destination="@id/saveAndUpdateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saveAndUpdateFragment"
+        android:name="com.example.notesmvvm.fragment.SaveAndUpdateFragment"
+        android:label="fragment_save_and_update"
+        tools:layout="@layout/fragment_save_and_update" >
+        <action
+            android:id="@+id/action_saveAndUpdateFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
+        <argument
+            android:name="Note"
+            android:defaultValue="@null"
+            app:argType="com.example.notesmvvm.model.Note"
+            app:nullable="true" />
+    </fragment>
+</navigation>
